@@ -40,4 +40,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function report_cards(){
+
+        return $this->hasOne(ReportCard::class);
+    }
+
+    public function assignReportCard($report_card){
+
+        return $this->report_cards()->attach($report_card);
+    }
 }

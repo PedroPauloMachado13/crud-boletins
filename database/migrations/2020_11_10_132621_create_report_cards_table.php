@@ -15,15 +15,9 @@ class CreateReportCardsTable extends Migration
     {
         Schema::create('report_cards', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
             $table->string('class');
             $table->string('grade');
             $table->timestamps();
-
-            $table->foreign('student_id')
-                    ->references('id')
-                    ->on('users')
-                    ->onDelete('cascade');
         });
 
         Schema::create('report_student', function (Blueprint $table) {

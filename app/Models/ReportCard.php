@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class ReportCard extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'class', 'grade',
+    ];
+
+    public function users(){
+
+        return $this->belongsTo(User::class);
+    }
 }
